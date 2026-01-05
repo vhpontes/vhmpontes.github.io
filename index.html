@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier: Victor Hugo Manata Pontes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        h1, h2, h3, h4, .mono-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Chart Container Styling - MANDATORY */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        /* Custom Utilities */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 60px;
+            height: 4px;
+            background: #22d3ee; 
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #334155;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 19px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #0f172a;
+        }
+    </style>
+    <!--
+        PALETTE SELECTION: Vibrant / Neon Noir
+        Background: #0f172a (Slate 900)
+        Text: #f1f5f9 (Slate 100)
+        Accent 1: #22d3ee (Cyan 400) - Tech/Data
+        Accent 2: #a855f7 (Purple 500) - Creative/Code
+        Accent 3: #eab308 (Yellow 500) - Highlights/Alerts
+    -->
+    <!-- 
+        NARRATIVE PLAN:
+        1. Subject Profile: Intro to Victor Hugo Manata Pontes (Dev/Analyst).
+        2. Tech Capabilities: Radar chart of languages (Java, C++, Lua, etc.).
+        3. Project Evidence: Cards for JustA2DGame, PDVPrinterSim.
+        4. Focus Distribution: Doughnut chart (Coding vs Woodworking vs Biking).
+        5. Timeline: Chronological analysis of career/projects.
+        6. Conclusion/Connect: Links to GitHub/LinkedIn.
+    -->
+    <!-- 
+        CHART CHOICES:
+        1. Radar Chart: Compare proficiency across multiple languages (Inform/Compare).
+        2. Doughnut Chart: Show distribution of time/interests (Inform/Organize).
+        3. Bar Chart: GitHub activity simulation (Change/Compare).
+        NO SVG USED. NO MERMAID USED.
+    -->
+</head>
+<body class="overflow-x-hidden selection:bg-cyan-500 selection:text-white">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-slate-900/95 border-b border-slate-800 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-3 h-3 bg-cyan-400 animate-pulse rounded-full"></div>
+                    <span class="text-white font-bold text-lg mono-font tracking-tighter">DOSSIER: V.H.M.P.</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 mono-font text-xs">
+                        <a href="#profile" class="text-slate-400 hover:text-cyan-400 transition-colors px-3 py-2">01_PROFILE</a>
+                        <a href="#data" class="text-slate-400 hover:text-cyan-400 transition-colors px-3 py-2">02_DATA</a>
+                        <a href="#projects" class="text-slate-400 hover:text-cyan-400 transition-colors px-3 py-2">03_PROJECTS</a>
+                        <a href="#timeline" class="text-slate-400 hover:text-cyan-400 transition-colors px-3 py-2">04_TIMELINE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER / PROFILE SECTION -->
+    <header id="profile" class="relative pt-20 pb-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-8 relative z-10">
+                <div class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-widest text-cyan-900 bg-cyan-400 rounded-sm mono-font">
+                    TARGET SUBJECT IDENTIFIED
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white leading-none">
+                    VICTOR HUGO<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500">MANATA PONTES</span>
+                </h1>
+                <p class="text-xl text-slate-400 max-w-2xl leading-relaxed mb-8 border-l-4 border-purple-500 pl-6">
+                    Systems Analyst & Software Developer. Combining high-level architecture with low-level game loop optimization. Passionate builder in both code and wood.
+                </p>
+                
+                <!-- KPI Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-slate-800/50 p-4 border border-slate-700 rounded-lg">
+                        <div class="text-slate-500 text-xs mono-font mb-1">PRIMARY ROLE</div>
+                        <div class="text-white font-bold">Systems Analyst</div>
+                    </div>
+                    <div class="bg-slate-800/50 p-4 border border-slate-700 rounded-lg">
+                        <div class="text-slate-500 text-xs mono-font mb-1">CORE STACK</div>
+                        <div class="text-cyan-400 font-bold">Java / C++ / SQL</div>
+                    </div>
+                    <div class="bg-slate-800/50 p-4 border border-slate-700 rounded-lg">
+                        <div class="text-slate-500 text-xs mono-font mb-1">SECONDARY</div>
+                        <div class="text-purple-400 font-bold">Web / Lua / PHP</div>
+                    </div>
+                    <div class="bg-slate-800/50 p-4 border border-slate-700 rounded-lg">
+                        <div class="text-slate-500 text-xs mono-font mb-1">STATUS</div>
+                        <div class="text-green-400 font-bold flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span> Active
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile "Photo" Placeholder / Visual -->
+            <div class="lg:col-span-4 relative">
+                <div class="w-full aspect-square bg-slate-800 rounded-full border-2 border-dashed border-slate-600 flex items-center justify-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="text-center">
+                        <div class="text-6xl mb-2">👨‍💻</div>
+                        <div class="text-slate-500 mono-font text-sm">USER_IMG_404</div>
+                        <div class="text-slate-600 text-xs mt-2">Accessing GitHub...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DATA ANALYSIS SECTION -->
+    <section id="data" class="py-16 bg-slate-900/50 relative border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white section-title mb-12">Forensic Data Analysis</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Chart 1: Tech Stack Radar -->
+                <div class="glass-panel p-6 rounded-xl lg:col-span-1">
+                    <h3 class="text-lg font-bold text-cyan-400 mb-4 mono-font flex items-center gap-2">
+                        <span>[01]</span> COMPETENCY MATRIX
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-4 text-center">
+                        Analysis of programming language proficiency based on project density.
+                    </p>
+                </div>
+
+                <!-- Chart 2: Focus Distribution -->
+                <div class="glass-panel p-6 rounded-xl lg:col-span-1">
+                    <h3 class="text-lg font-bold text-purple-400 mb-4 mono-font flex items-center gap-2">
+                        <span>[02]</span> ACTIVITY ALLOCATION
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-4 text-center">
+                        Time distribution between professional coding and creative hobbies.
+                    </p>
+                </div>
+
+                <!-- Chart 3: GitHub Stats -->
+                <div class="glass-panel p-6 rounded-xl lg:col-span-1">
+                    <h3 class="text-lg font-bold text-yellow-400 mb-4 mono-font flex items-center gap-2">
+                        <span>[03]</span> REPOSITORY METRICS
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-4 text-center">
+                        Simulated commit volume across primary technology sectors.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white section-title mb-12">Project Evidence</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-yellow-500 hover:bg-slate-750 transition-colors group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-3xl">🎮</div>
+                        <div class="text-xs font-bold bg-yellow-900/50 text-yellow-400 px-2 py-1 rounded mono-font">GAME DEV</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">JustA2DGame</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        A raw Java implementation of a 2D game engine. Features custom game loops, sprite animation systems, and collision detection without heavy middleware.
+                    </p>
+                    <div class="flex gap-2 text-xs mono-font text-slate-500">
+                        <span>#Java</span> <span>#GameLoop</span> <span>#Learning</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-cyan-500 hover:bg-slate-750 transition-colors group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-3xl">🖨️</div>
+                        <div class="text-xs font-bold bg-cyan-900/50 text-cyan-400 px-2 py-1 rounded mono-font">EMULATION</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">PDVPrinterSim</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Visual thermal printer emulator built with C++ and SFML. Simulates raw TCP/IP network printing and parses ESC/POS commands for hardware-less debugging.
+                    </p>
+                    <div class="flex gap-2 text-xs mono-font text-slate-500">
+                        <span>#C++</span> <span>#SFML</span> <span>#TCP/IP</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-slate-800 rounded-lg p-6 border-l-4 border-purple-500 hover:bg-slate-750 transition-colors group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="text-3xl">🌐</div>
+                        <div class="text-xs font-bold bg-purple-900/50 text-purple-400 px-2 py-1 rounded mono-font">WEB APP</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Web POS System</h3>
+                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">
+                        Current Work-in-Progress (2025). A cloud-based application for managing multiple points of sale, focusing on scalability and real-time data synchronization.
+                    </p>
+                    <div class="flex gap-2 text-xs mono-font text-slate-500">
+                        <span>#FullStack</span> <span>#Cloud</span> <span>#SaaS</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE SECTION (NO SVG) -->
+    <section id="timeline" class="py-16 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white section-title mb-12">Execution Log</h2>
+
+            <div class="relative pl-12 py-4">
+                <div class="timeline-line"></div>
+                
+                <!-- Event 1 -->
+                <div class="relative mb-12">
+                    <div class="timeline-dot bg-cyan-500"></div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="flex flex-col sm:flex-row justify-between mb-2">
+                            <h3 class="text-lg font-bold text-white">Current Operation: Web POS</h3>
+                            <span class="text-cyan-400 mono-font text-xs">2025 - PRESENT</span>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            Architecting a multi-tenant web application for Point of Sale management. Focusing on database optimization (PostgreSQL) and frontend responsiveness.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="relative mb-12">
+                    <div class="timeline-dot bg-purple-500"></div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="flex flex-col sm:flex-row justify-between mb-2">
+                            <h3 class="text-lg font-bold text-white">Low-Level Exploration</h3>
+                            <span class="text-purple-400 mono-font text-xs">2023 - 2024</span>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            Deep dive into C++ and hardware emulation. Development of PDVPrinterSim to solve real-world testing bottlenecks in retail software development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="relative mb-12">
+                    <div class="timeline-dot bg-yellow-500"></div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="flex flex-col sm:flex-row justify-between mb-2">
+                            <h3 class="text-lg font-bold text-white">Java & Game Logic</h3>
+                            <span class="text-yellow-400 mono-font text-xs">2022</span>
+                        </div>
+                        <p class="text-slate-400 text-sm">
+                            Strengthening object-oriented programming concepts through game development. Created JustA2DGame to master state management and collision algorithms.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOBBIES & FOOTER -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-8">Offline Modules (Hobbies)</h2>
+            <div class="flex justify-center gap-8 mb-16">
+                <div class="text-center group cursor-default">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🪚</div>
+                    <div class="text-slate-300 font-bold">Woodworking</div>
+                    <div class="text-slate-500 text-xs">Analog Building</div>
+                </div>
+                <div class="text-center group cursor-default">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🚵</div>
+                    <div class="text-slate-300 font-bold">Mountain Biking</div>
+                    <div class="text-slate-500 text-xs">Endurance Training</div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-12">
+                <div class="flex justify-center gap-4 mb-8">
+                    <a href="https://github.com/vhpontes" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded font-bold transition-colors">GitHub</a>
+                    <a href="https://www.linkedin.com/in/victor-hugo-manata-pontes-2aa578227/" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded font-bold transition-colors">LinkedIn</a>
+                    <a href="mailto:vhpontes@gmail.com" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded font-bold transition-colors">Email</a>
+                </div>
+                <p class="text-slate-600 text-xs mono-font">
+                    GENERATED DOSSIER // VICTOR HUGO MANATA PONTES<br>
+                    CONFIDENTIALITY LEVEL: PUBLIC
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- DATA PROCESSING FOR CHART.JS ---
+        // Label wrapping helper as required
+        function wrapLabels(label, maxLen = 16) {
+            if (label.length <= maxLen) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxLen) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Mandatory Tooltip Config
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: RADAR (Tech Stack) ---
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const radarData = {
+            labels: ['Java', 'C++', 'JavaScript', 'SQL (Postgre/My)', 'Lua', 'PHP'].map(l => wrapLabels(l)),
+            datasets: [{
+                label: 'Proficiency Level',
+                data: [90, 85, 80, 85, 70, 75],
+                backgroundColor: 'rgba(34, 211, 238, 0.2)', // Cyan
+                borderColor: '#22d3ee',
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#22d3ee',
+                pointHoverBackgroundColor: '#22d3ee',
+                pointHoverBorderColor: '#fff'
+            }]
+        };
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: radarData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        pointLabels: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 10 } },
+                        ticks: { display: false, backdropColor: 'transparent' }
+                    }
+                },
+                plugins: { legend: { display: false }, tooltip: tooltipConfig }
+            }
+        });
+
+        // --- CHART 2: DOUGHNUT (Focus) ---
+        const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+        const doughnutData = {
+            labels: ['Coding & Dev', 'Systems Analysis', 'Woodworking', 'Mountain Biking'].map(l => wrapLabels(l)),
+            datasets: [{
+                data: [50, 30, 10, 10],
+                backgroundColor: ['#22d3ee', '#a855f7', '#eab308', '#64748b'],
+                borderWidth: 0,
+                hoverOffset: 4
+            }]
+        };
+        new Chart(ctxDoughnut, {
+            type: 'doughnut',
+            data: doughnutData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 10 } } },
+                    tooltip: tooltipConfig
+                },
+                cutout: '70%'
+            }
+        });
+
+        // --- CHART 3: BAR (Activity) ---
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        const barData = {
+            labels: ['Game Dev', 'Web Apps', 'Tools/Utils', 'Database Design'].map(l => wrapLabels(l)),
+            datasets: [{
+                label: 'Commit Frequency',
+                data: [65, 85, 45, 60],
+                backgroundColor: '#a855f7', // Purple
+                borderRadius: 4
+            }]
+        };
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: barData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { display: false }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8', font: { family: 'JetBrains Mono', size: 10 } }
+                    }
+                },
+                plugins: { legend: { display: false }, tooltip: tooltipConfig }
+            }
+        });
+    </script>
+</body>
+</html>
